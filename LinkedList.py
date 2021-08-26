@@ -94,3 +94,4 @@ class LinkedList:
                     self.tail = newNode
                 return
             node = node.next
+        return
