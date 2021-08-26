@@ -87,7 +87,7 @@ class LinkedList:
             return
         node = self.head
         while node is not None:
-            if node.value == afterNode:
+            if node.value == afterNode.value:
                 newNode.next = node.next
                 node.next = newNode
                 if newNode.next is None:
