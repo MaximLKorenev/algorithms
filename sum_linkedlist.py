@@ -27,3 +27,4 @@ def sum_link_list(first, second):
             a = a.next
             b = b.next
         return c
+    return None
