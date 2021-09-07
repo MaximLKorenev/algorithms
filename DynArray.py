@@ -39,12 +39,11 @@ class DynArray:
             self.resize(2 * self.capacity)
         if i == self.count:
             self.append(itm)
+        else:
+            for j in range(self.count, i, -1):
+                self.array[j] = self.array[j - 1]
+            self.array[i] = itm
             self.count += 1
-            return
-        for j in range(self.count, i, -1):
-            self.array[j] = self.array[j - 1]
-        self.array[i] = itm
-        self.count += 1
 
     def delete(self, i):
         if i < 0 or i >= self.count:
