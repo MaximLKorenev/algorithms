@@ -39,7 +39,7 @@ class DynArray:
             self.resize(2 * self.capacity)
         self.count += 1
         if i == self.count:
-            self.append(i)
+            self.append(itm)
             return
         for j in range(self.count, i, -1):
             self.array[j] = self.array[j - 1]
