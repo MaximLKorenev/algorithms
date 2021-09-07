@@ -37,13 +37,13 @@ class DynArray:
             raise IndexError('Index is out of bounds')
         if self.count == self.capacity:
             self.resize(2 * self.capacity)
+        self.count += 1
         if i == self.count:
             self.append(i)
             return
         for j in range(self.count, i, -1):
             self.array[j] = self.array[j - 1]
         self.array[i] = itm
-        self.count += 1
 
     def delete(self, i):
         if i < 0 or i >= self.count:
