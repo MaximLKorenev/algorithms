@@ -43,7 +43,8 @@ class OrderedList:
         node = self.head
         while node is not None:
             if (self.__ascending and self.compare(node.next.value, value) == 1) or (
-                not self.__ascending and self.compare(node.next.value, value) == -1):
+                not self.__ascending and self.compare(node.next.value, value) == -1) or (
+                    self.compare(node.value, value) == 0):
                 item.next = node.next
                 item.prev = node
                 node.next.prev = item
