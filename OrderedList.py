@@ -27,7 +27,7 @@ class OrderedList:
             return
 
         if (self.__ascending and self.compare(self.head.value, value) == 1) or (
-              not self.__ascending and self.compare(self.tail.value, value) == -1):
+              not self.__ascending and self.compare(self.head.value, value) == -1):
             self.head.prev = item
             item.next = self.head
             self.head = item
@@ -49,7 +49,6 @@ class OrderedList:
                 node.next.prev = item
                 node.next = item
                 return
-            node = node.next
 
     def find(self, val):
         node = self.head
