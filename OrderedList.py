@@ -4,6 +4,7 @@ class Node:
         self.prev = None
         self.next = None
 
+
 class OrderedList:
     def __init__(self, asc):
         self.head = None
@@ -27,14 +28,16 @@ class OrderedList:
             return
 
         if (self.__ascending and self.compare(self.head.value, value) == 1) or (
-              not self.__ascending and self.compare(self.head.value, value) == -1):
+                not self.__ascending and self.compare(self.head.value, value) == -1) or (
+                self.compare(self.head.value, value) == 0):
             self.head.prev = item
             item.next = self.head
             self.head = item
             return
 
         if (self.__ascending and self.compare(self.tail.value, value) == -1) or (
-              not self.__ascending and self.compare(self.tail.value, value) == 1):
+                not self.__ascending and self.compare(self.tail.value, value) == 1) or (
+                self.compare(self.head.value, value) == 0):
             self.tail.next = item
             item.prev = self.tail
             self.tail = item
@@ -43,8 +46,7 @@ class OrderedList:
         node = self.head
         while node is not None:
             if (self.__ascending and self.compare(node.next.value, value) == 1) or (
-                not self.__ascending and self.compare(node.next.value, value) == -1) or (
-                    self.compare(node.value, value) == 0):
+                    not self.__ascending and self.compare(node.next.value, value) == -1):
                 item.next = node.next
                 item.prev = node
                 node.next.prev = item
@@ -58,7 +60,7 @@ class OrderedList:
             if node.value == val:
                 return node
             if (self.__ascending and self.compare(node.value, val) == 1) or (
-              not self.__ascending and self.compare(node.value, val) == -1):
+                    not self.__ascending and self.compare(node.value, val) == -1):
                 break
             node = node.next
         return None
@@ -107,6 +109,7 @@ class OrderedList:
             r.append(node)
             node = node.next
         return r
+
 
 class OrderedStringList(OrderedList):
     def __init__(self, asc):
