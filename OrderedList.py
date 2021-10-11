@@ -49,6 +49,7 @@ class OrderedList:
                 node.next.prev = item
                 node.next = item
                 return
+            node = node.next
 
     def find(self, val):
         node = self.head
