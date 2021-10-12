@@ -37,7 +37,7 @@ class OrderedList:
 
         if (self.__ascending and self.compare(self.tail.value, value) == -1) or (
                 not self.__ascending and self.compare(self.tail.value, value) == 1) or (
-                self.compare(self.head.value, value) == 0):
+                self.compare(self.tail.value, value) == 0):
             self.tail.next = item
             item.prev = self.tail
             self.tail = item
