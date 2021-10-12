@@ -70,7 +70,7 @@ class OrderedList:
         while node is not None:
             if (self.__ascending and self.compare(node.value, val) == 1) or (
                     not self.__ascending and self.compare(node.value, val) == -1):
-                break
+                return None
             if node is self.head:
                 if node.value == val:
                     self.head = node.next
@@ -79,6 +79,7 @@ class OrderedList:
                         return None
                     else:
                         self.head.prev = None
+                        return
             if node.value == val:
                 node.prev.next = node.next
                 if node.next is None:
@@ -86,6 +87,7 @@ class OrderedList:
                     return
                 else:
                     node.next.prev = node.prev
+                    return
             node = node.next
         return None
 
