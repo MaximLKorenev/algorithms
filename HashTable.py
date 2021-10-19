@@ -27,6 +27,6 @@ class HashTable:
     def find(self, value):
         index = self.hash_fun(value)
         for i in range(self.size):
-            if self.slots[index + i] == value:
+            if self.slots[(index + i) % self.size] == value:
                 return index + i
         return None
