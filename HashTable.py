@@ -13,6 +13,7 @@ class HashTable:
         for i in range(self.size):
             if self.slots[i] is None:
                 flag = True
+                break
         if not flag:
             return None
         while flag:
@@ -22,7 +23,7 @@ class HashTable:
 
     def put(self, value):
         index = self.seek_slot(value)
-        if index:
+        if index is not None:
             self.slots[index] = value
             return index
         return None
