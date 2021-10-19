@@ -9,13 +9,16 @@ class HashTable:
 
     def seek_slot(self, value):
         index = self.hash_fun(value)
-        for _ in range(self.size):
-            if self.slots[index] is None:
-                break
-            index = (index + self.step) % self.size
-        else:
+        flag = False
+        for i in range(self.size):
+            if self.slots[i] is None:
+                flag = True
+        if not flag:
             return None
-        return index
+        while flag:
+            if self.slots[index] is None:
+                return index
+            index = (index + self.step) % self.size
 
     def put(self, value):
         index = self.seek_slot(value)
